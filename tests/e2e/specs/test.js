@@ -16,4 +16,15 @@ describe("Display metier details", () => {
     cy.get('input[value="Cuisine"]').check()
     cy.get('button').should('disabled', 'true')
   })
+  it.only('select niveau etude and button disabled', () => {
+    cy.get('input[type="checkbox"]').check({ force: true })
+    cy.get('button').should('disabled', 'true')
+  })
+
+  it.only('enable button', () => {
+  cy.get('input[type="radio"]').first().check()
+  cy.get('input[type="checkbox"]').first().check({force: true})
+  cy.get('button').should('not.be.disabled')
+})
 });
+
