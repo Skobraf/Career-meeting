@@ -3,7 +3,6 @@
         <ul>
             <li v-for="secteur, index in secteurs"><router-link :to="{ name: 'secteur', params: { secteurId: index }}"> {{secteur.nameSecteur}}</router-link></li>
         </ul>
-        <router-view/>
     </div>
 </template>
 

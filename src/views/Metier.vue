@@ -1,5 +1,6 @@
 <template>
     <div class="metier"> 
+        <Detailtitle v-bind:title ="secteurs[routeId].nameSecteur" />
         <div class="filier-list">
             <h2>Choisis un filiere</h2>
             <ul class="tg-list">
@@ -47,7 +48,7 @@
 </template>
     
 <script>
-
+import Detailtitle from '../components/DetailTitle.vue';
 
 export default {
     name: 'metier',
@@ -62,8 +63,12 @@ export default {
     data() {
         return {
             filiereChecked: '',
-            etudeChecked:[]
+            etudeChecked:[],
+            routeId: this.$route.params.secteurId
         }
+    },
+    components: {
+        Detailtitle
     },
     methods: {
         handleClick() {

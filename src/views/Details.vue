@@ -78,9 +78,6 @@ export default {
 }
 </script>
 <style>
-    .detail-head {
-        text-align: center;
-    }
 </style>
 
 
