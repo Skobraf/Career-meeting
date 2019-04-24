@@ -16,7 +16,7 @@ ul {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   color: #ffffff;
   background-color: #160D28;

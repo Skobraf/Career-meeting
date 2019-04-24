@@ -39,8 +39,8 @@
             </ul>
         </div>
         <div class="submit">
-            <i class="fas fa-check"></i>
-            <button @click="handleClick" :disabled="etudeChecked.length == 0 || filiereChecked == ''">click me</button>
+            
+            <button @click="handleClick" :disabled="etudeChecked.length == 0 || filiereChecked == ''"><i class="fas fa-check"></i></button>
         </div>
         
     </div>
@@ -81,11 +81,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// colores
+$inside_color: #888888;
+$outside_color:#454545;
+$active_color: #A3C961;
+/////////
 h2 {
     margin-left: 20px;
     border-left: 4px solid #F9BE00;
     padding-left: 12px;
 }
+.submit {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        background: $active_color;
+        margin: 20px;
+        width: 56px;
+        height:56px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        i {
+        color: white;
+        font-size: 20px;
+    }
+    }
+    button:disabled {
+        background: $inside_color;
+        margin: 20px;
+        width: 56px;
+        height:56px;
+        border: none;
+        border-radius: 50%;
+        i {
+        color: $outside_color;
+        font-size: 20px;
+    }
+    }
+    
+}
+//SWITCH INPUTS
 .tg-list-item{
 	margin: 8px 20px;
     display: flex;
@@ -137,10 +173,7 @@ h2 {
 }
 
 // themes
-// colores
-$inside_color: #888888;
-$outside_color:#454545;
-$active_color: #A3C961;
+
 .tgl-flat{
 	+ .tgl-btn{
 		    padding: 1px;
