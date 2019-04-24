@@ -1,20 +1,23 @@
 <template>
-    <div class="metier">
-        
+    <div class="metier"> 
         <div class="filier-list">
             <h2>Choisis un filiere</h2>
-            <ul>
-                <li v-for="filiere in secteurs[$route.params.secteurId].filiere">
-                    <label class="swit">
+            <ul class="tg-list">
+                <li class="tg-list-item" v-for="filiere,index in secteurs[$route.params.secteurId].filiere">
+                        <label class='tgl-btn' :for='index'>
+                         </label>
                         <input
                             type="radio"
                             v-bind:value="filiere.nameFiliere"
                             v-model="filiereChecked"
+                            class='tgl tgl-flat'
+                            :id='index'
+                            name='group'
                             >
-                        <span class=" round"></span>
+                            <label class='tgl-btn' :for='index'></label>
+                            <label class='tgl-btn' :for='index'>
                             {{ filiere.nameFiliere }}
                     </label>
-                   
                 </li>
             </ul>
         </div>
@@ -73,64 +76,256 @@ export default {
 }
 </script>
 
-<style>
-    .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+<style lang="scss">
+   .tg-list{
+	text-align: center;
+	display: flex;
+	align-items: center;
+}
+.tg-list-item{
+	margin: 0 20px;
+}
+h2{
+	color: #777;
+}
+h4{
+	color: #999;
+}
+.tgl{
+	display: none;
+	// add default box-sizing for this scope
+	&, &:after, &:before,
+	& *, & *:after, & *:before,
+	& + .tgl-btn{
+		box-sizing: border-box;
+		&::selection{
+			background: none;
+		}
+	}
+	+ .tgl-btn{
+		outline: 0;
+		display: block;
+		width: 4em;
+		height: 2em;
+		position: relative;
+		cursor: pointer;
+     user-select: none;
+		&:after, &:before{
+			position: relative;
+			display: block;
+			content: "";
+			width: 50%;
+			height: 100%;
+		}
+		&:after{
+			left: 0;
+		}
+		&:before{
+			display: none;
+		}
+	}
+	&:checked{
+		+ .tgl-btn{
+			&:after{
+				left: 50%;
+			}
+		}
+	}
 }
 
-.switch input { 
-  opacity: 0;
-  /* width: 0;
-  height: 0; */
+// themes
+.tgl-light{
+	+ .tgl-btn{
+		background: #f0f0f0;
+		border-radius: 2em;
+		padding: 2px;
+		transition: all .4s ease;
+		&:after{
+			border-radius: 50%;
+			background: #fff;
+			transition: all .2s ease;
+		}
+	}
+	&:checked{
+		+ .tgl-btn{
+			background: #9FD6AE;
+		}
+	}
+}
+.tgl-ios{
+	+ .tgl-btn{
+		background: #fbfbfb;
+		border-radius: 2em;
+		padding: 2px;
+		transition: all .4s ease;
+		border: 1px solid #e8eae9;
+		&:after{
+			border-radius: 2em;
+			background: #fbfbfb;
+			transition:
+        left .3s cubic-bezier(
+          0.175, 0.885, 0.320, 1.275
+        ),
+        padding .3s ease, margin .3s ease;
+			box-shadow:
+        0 0 0 1px rgba(0,0,0,.1),
+        0 4px 0 rgba(0,0,0,.08);
+		}
+    &:hover:after {
+      will-change: padding;
+    }
+		&:active{
+			box-shadow: inset 0 0 0 2em #e8eae9;
+			&:after{
+				padding-right: .8em;
+			}
+		}
+	}
+	&:checked{
+		+ .tgl-btn{
+			background: #86d993;
+			&:active{
+				box-shadow: none;
+				&:after{
+					margin-left: -.8em;
+				}
+			}
+		}
+	}
+}
+.tgl-skewed{
+	+ .tgl-btn{
+		overflow: hidden;
+		transform: skew(-10deg);
+		backface-visibility: hidden;
+		transition: all .2s ease;
+		font-family: sans-serif;
+		background: #888;
+		&:after, &:before{
+			transform: skew(10deg);
+			display: inline-block;
+			transition: all .2s ease;
+			width: 100%;
+			text-align: center;
+			position: absolute;
+			line-height: 2em;
+			font-weight: bold;
+			color: #fff;
+
+			text-shadow: 0 1px 0 rgba(0,0,0,.4);
+		}
+		&:after{
+			left: 100%;
+			content: attr(data-tg-on);
+		}	
+		&:before{
+			left: 0;
+			content: attr(data-tg-off);
+		}	
+		&:active{
+			background: #888;
+			&:before{
+				left: -10%;
+			}
+		}
+	}
+	&:checked{
+		+ .tgl-btn{
+			background: #86d993;
+			&:before{
+				left: -100%;
+			}	
+			&:after{
+				left: 0;
+			}
+			&:active{
+				&:after{
+					left: 10%;
+				}
+			}
+		}
+	}
+}
+.tgl-flat{
+	+ .tgl-btn{
+		padding: 2px;
+		transition: all .2s ease;
+		background: #fff;
+		border: 4px solid #f2f2f2;
+		border-radius: 2em;
+		&:after{
+			transition: all .2s ease;
+			background: #f2f2f2;
+			content: "";
+			border-radius: 1em;
+		}
+	}
+	&:checked{
+		+ .tgl-btn{
+			border: 4px solid #7FC6A6;
+			&:after{
+				left: 50%;
+				background: #7FC6A6;
+			}
+		}
+	}
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+.tgl-flip{
+	+ .tgl-btn{
+		padding: 2px;
+		transition: all .2s ease;
+		font-family: sans-serif;
+		perspective: 100px;
+		&:after, &:before{
+			display: inline-block;
+			transition: all .4s ease;
+			width: 100%;
+			text-align: center;
+			position: absolute;
+			line-height: 2em;
+			font-weight: bold;
+			color: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+			backface-visibility: hidden;
+			border-radius: 4px;
+		}
+		&:after{
+			content: attr(data-tg-on);
+			background: #02C66F;
+			transform: rotateY(-180deg);
+		}	
+		&:before{
+			background: #FF3A19;
+			content: attr(data-tg-off);
+		}
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+		&:active{
+			&:before{
+				transform: rotateY(-20deg);
+			}
+		}
+	}
+	&:checked{
+		+ .tgl-btn{
+			&:before{
+				transform: rotateY(180deg);
+			}	
+			&:after{
+				transform: rotateY(0);
+				left: 0;
+				background: #7FC6A6;
+			}
+			&:active{
+				&:after{
+					transform: rotateY(20deg);
+				}
+			}
+		}
+	}
 }
 </style>
+
+
