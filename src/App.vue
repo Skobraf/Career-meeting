@@ -19,6 +19,7 @@ ul {
   max-width: 500px;
   margin: 0 auto;
   color: #2c3e50;
+  background-color: #6d7ef5;
 }
 #nav {
   padding: 30px;

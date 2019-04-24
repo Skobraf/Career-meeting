@@ -13,11 +13,9 @@
                             class='tgl tgl-flat'
                             :id='index'
                             name='group'
-                            >
+                            >{{ filiere.nameFiliere }} 
                             <label class='tgl-btn' :for='index'></label>
-                            <label class='tgl-btn' :for='index'>
-                            {{ filiere.nameFiliere }}
-                    </label>
+                                  
                 </li>
             </ul>
         </div>
@@ -36,6 +34,12 @@
                     </label>
                     {{ diplome.nameDiplome }}
                 </li>
+
+    <input class='tgl tgl-flat' id='cb4' type='checkbox'>
+    <label class='tgl-btn' for='cb4'></label>
+    <label class='tgl-btn' for='cb4'>
+      <h4>Flat</h4>
+    </label>
             </ul>
         </div>
         <button @click="handleClick" :disabled="etudeChecked.length == 0 || filiereChecked == ''">click me</button>
@@ -77,20 +81,11 @@ export default {
 </script>
 
 <style lang="scss">
-   .tg-list{
-	text-align: center;
-	display: flex;
-	align-items: center;
-}
+
 .tg-list-item{
 	margin: 0 20px;
 }
-h2{
-	color: #777;
-}
-h4{
-	color: #999;
-}
+
 .tgl{
 	display: none;
 	// add default box-sizing for this scope
@@ -105,8 +100,8 @@ h4{
 	+ .tgl-btn{
 		outline: 0;
 		display: block;
-		width: 4em;
-		height: 2em;
+		width: 37px;
+		height: 17px;
 		position: relative;
 		cursor: pointer;
      user-select: none;
@@ -114,7 +109,7 @@ h4{
 			position: relative;
 			display: block;
 			content: "";
-			width: 50%;
+			width: 38%;
 			height: 100%;
 		}
 		&:after{
@@ -134,194 +129,31 @@ h4{
 }
 
 // themes
-.tgl-light{
-	+ .tgl-btn{
-		background: #f0f0f0;
-		border-radius: 2em;
-		padding: 2px;
-		transition: all .4s ease;
-		&:after{
-			border-radius: 50%;
-			background: #fff;
-			transition: all .2s ease;
-		}
-	}
-	&:checked{
-		+ .tgl-btn{
-			background: #9FD6AE;
-		}
-	}
-}
-.tgl-ios{
-	+ .tgl-btn{
-		background: #fbfbfb;
-		border-radius: 2em;
-		padding: 2px;
-		transition: all .4s ease;
-		border: 1px solid #e8eae9;
-		&:after{
-			border-radius: 2em;
-			background: #fbfbfb;
-			transition:
-        left .3s cubic-bezier(
-          0.175, 0.885, 0.320, 1.275
-        ),
-        padding .3s ease, margin .3s ease;
-			box-shadow:
-        0 0 0 1px rgba(0,0,0,.1),
-        0 4px 0 rgba(0,0,0,.08);
-		}
-    &:hover:after {
-      will-change: padding;
-    }
-		&:active{
-			box-shadow: inset 0 0 0 2em #e8eae9;
-			&:after{
-				padding-right: .8em;
-			}
-		}
-	}
-	&:checked{
-		+ .tgl-btn{
-			background: #86d993;
-			&:active{
-				box-shadow: none;
-				&:after{
-					margin-left: -.8em;
-				}
-			}
-		}
-	}
-}
-.tgl-skewed{
-	+ .tgl-btn{
-		overflow: hidden;
-		transform: skew(-10deg);
-		backface-visibility: hidden;
-		transition: all .2s ease;
-		font-family: sans-serif;
-		background: #888;
-		&:after, &:before{
-			transform: skew(10deg);
-			display: inline-block;
-			transition: all .2s ease;
-			width: 100%;
-			text-align: center;
-			position: absolute;
-			line-height: 2em;
-			font-weight: bold;
-			color: #fff;
-
-			text-shadow: 0 1px 0 rgba(0,0,0,.4);
-		}
-		&:after{
-			left: 100%;
-			content: attr(data-tg-on);
-		}	
-		&:before{
-			left: 0;
-			content: attr(data-tg-off);
-		}	
-		&:active{
-			background: #888;
-			&:before{
-				left: -10%;
-			}
-		}
-	}
-	&:checked{
-		+ .tgl-btn{
-			background: #86d993;
-			&:before{
-				left: -100%;
-			}	
-			&:after{
-				left: 0;
-			}
-			&:active{
-				&:after{
-					left: 10%;
-				}
-			}
-		}
-	}
-}
+// colores
+$inside_color: #888888;
+$outside_color:#454545;
+$active_color: #A3C961;
 .tgl-flat{
 	+ .tgl-btn{
-		padding: 2px;
-		transition: all .2s ease;
-		background: #fff;
-		border: 4px solid #f2f2f2;
-		border-radius: 2em;
+		    padding: 1px;
+            transition: all .2s ease;
+            background: $inside_color;
+            border: 1px solid #ffffff;
+            border-radius: 2em;
 		&:after{
 			transition: all .2s ease;
-			background: #f2f2f2;
+			background:  $outside_color;
 			content: "";
 			border-radius: 1em;
 		}
 	}
 	&:checked{
 		+ .tgl-btn{
-			border: 4px solid #7FC6A6;
+			border: 1px solid #ffffff;
+            background: $outside_color;
 			&:after{
-				left: 50%;
-				background: #7FC6A6;
-			}
-		}
-	}
-}
-
-.tgl-flip{
-	+ .tgl-btn{
-		padding: 2px;
-		transition: all .2s ease;
-		font-family: sans-serif;
-		perspective: 100px;
-		&:after, &:before{
-			display: inline-block;
-			transition: all .4s ease;
-			width: 100%;
-			text-align: center;
-			position: absolute;
-			line-height: 2em;
-			font-weight: bold;
-			color: #fff;
-			position: absolute;
-			top: 0;
-			left: 0;
-			backface-visibility: hidden;
-			border-radius: 4px;
-		}
-		&:after{
-			content: attr(data-tg-on);
-			background: #02C66F;
-			transform: rotateY(-180deg);
-		}	
-		&:before{
-			background: #FF3A19;
-			content: attr(data-tg-off);
-		}
-
-		&:active{
-			&:before{
-				transform: rotateY(-20deg);
-			}
-		}
-	}
-	&:checked{
-		+ .tgl-btn{
-			&:before{
-				transform: rotateY(180deg);
-			}	
-			&:after{
-				transform: rotateY(0);
-				left: 0;
-				background: #7FC6A6;
-			}
-			&:active{
-				&:after{
-					transform: rotateY(20deg);
-				}
+				left: 62%;
+				background: $active_color;
 			}
 		}
 	}
