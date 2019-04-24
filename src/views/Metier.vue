@@ -13,17 +13,18 @@
                             class='tgl tgl-flat'
                             :id='index'
                             name='group'
-                            >{{ filiere.nameFiliere }} 
+                            >
                             <label class='tgl-btn' :for='index'></label>
+                            <span>{{ filiere.nameFiliere }}</span>
                                   
                 </li>
             </ul>
         </div>
         <hr>
         <div class="etude-list">
-            <h1>Quel est ton niveau d'etudes?</h1>
+            <h2>Quel est ton niveau d'etudes?</h2>
             <ul>
-                <li v-for="diplome,index in diplomes">
+                <li class="tg-list-item" v-for="diplome,index in diplomes">
                         <input
                             type="checkbox"
                            v-bind:value="diplome.nameDiplome"
@@ -32,11 +33,16 @@
                            :id="diplome.nameDiplome"
                         >
                         <label class='tgl-btn' :for='diplome.nameDiplome'></label>
-                    {{ diplome.nameDiplome }}
+                        <span>{{ diplome.nameDiplome }}</span>
+                    
                 </li>
             </ul>
         </div>
-        <button @click="handleClick" :disabled="etudeChecked.length == 0 || filiereChecked == ''">click me</button>
+        <div class="submit">
+            <i class="fas fa-check"></i>
+            <button @click="handleClick" :disabled="etudeChecked.length == 0 || filiereChecked == ''">click me</button>
+        </div>
+        
     </div>
 </template>
     
@@ -74,10 +80,18 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+h2 {
+    margin-left: 20px;
+    border-left: 4px solid #F9BE00;
+    padding-left: 12px;
+}
 .tg-list-item{
-	margin: 0 20px;
+	margin: 8px 20px;
+    display: flex;
+    span {
+        margin-left:10px;
+    }
 }
 
 .tgl{
