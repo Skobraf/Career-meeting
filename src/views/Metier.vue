@@ -23,23 +23,17 @@
         <div class="etude-list">
             <h1>Quel est ton niveau d'etudes?</h1>
             <ul>
-                <li v-for="diplome in diplomes">
-                    <label class="switch">
+                <li v-for="diplome,index in diplomes">
                         <input
                             type="checkbox"
                            v-bind:value="diplome.nameDiplome"
                            v-model="etudeChecked"
+                           class='tgl tgl-flat'
+                           :id="diplome.nameDiplome"
                         >
-                        <span class="slider round"></span>
-                    </label>
+                        <label class='tgl-btn' :for='diplome.nameDiplome'></label>
                     {{ diplome.nameDiplome }}
                 </li>
-
-    <input class='tgl tgl-flat' id='cb4' type='checkbox'>
-    <label class='tgl-btn' for='cb4'></label>
-    <label class='tgl-btn' for='cb4'>
-      <h4>Flat</h4>
-    </label>
             </ul>
         </div>
         <button @click="handleClick" :disabled="etudeChecked.length == 0 || filiereChecked == ''">click me</button>
