@@ -1,6 +1,6 @@
 <template>
     <div class="details">
-        <div>
+        <div class="detail-head">
          <Detailtitle v-bind:title ="items.secteur" />
             <select name="filieres" @change="handleChange">
                 <option
@@ -78,7 +78,9 @@ export default {
 }
 </script>
 <style>
-    
+    .detail-head {
+        text-align: center;
+    }
 </style>
 
 
