@@ -19,8 +19,5 @@ export default {
 </script>
 
 <style>
-.active {
-        color:red;
-    }
 </style>
 

@@ -24,9 +24,8 @@
                     v-on:click="seen = true"
                     @click="handleMe(laMetier.nameMetier)"
                     >
-                    <span  v-bind:class="{active: items.etudeChecked.some( r=> laMetier.diplome.indexOf(r) >= 0)}"></span>
+                    <span v-bind:class="{active: items.etudeChecked.some( r=> laMetier.diplome.indexOf(r) >= 0)}"></span>
                     <MetierInfo
-                       
                         v-bind:metiert="laMetier"
                         v-bind:indice="indice"
                         />
@@ -91,7 +90,15 @@ export default {
             background: #2E263E;
             border: none;
             margin-top: 4px;
-           
+            &::before {
+                content: '';
+                background-color: rgba(204, 0, 102, 0);
+                border: 1px solid #fff;
+                height: 40px;
+                width: 49px;
+                border-radius: 75px;
+                margin: 8px;
+        }
     }
     .select-item {
         display: flex;
@@ -112,7 +119,14 @@ export default {
     }
     ul {
         padding-left: 12px;
-        margin-top: 10px;
+        &::before {
+            content: '';
+            position: absolute;
+            border: 0.5px solid white;
+            margin-left: 36px;
+            margin-top: -23px;
+            height: 242px;
+        }
     }
     li {
         display: flex;
@@ -120,41 +134,26 @@ export default {
             content: '';
             background-color: rgba(204, 0, 102, 0);
             border: 1px solid #fff;
+            position: absolute;
             height: 31px;
             width: 31px;
             border-radius: 75px;
-            margin-top: 17px;
+            margin-top: 16px;
             margin-left: 20px;
-        }
-        &::after {
-            content: '';
-            position: absolute;
-            border: 0.5px solid white;
-            margin-left: 36px;
-            margin-top: -18px;
-            height: 35px;
         }
     }
      span{
         background-color: #8E8E8E;
-        height: 22px;
-        width: 22px;
+        height: 23px;
+        width: 23px;
+        top: 21px;
+        left: 25px;
         position: relative;
-        top: 23px;
-        right: 27px;
         border-radius: 75px;
-         &::before {
-                content: '';
-                background-color: rgba(204, 0, 102, 0);
-                border: 1px solid #fff;
-                height: 40px;
-                width: 49px;
-                border-radius: 75px;
-                margin: 8px;
-        }
+        margin-right: 40px;
      }
     .active {
-        background: #A3C961 !important;
+        background:#A3C961;
     }
     
 </style>
