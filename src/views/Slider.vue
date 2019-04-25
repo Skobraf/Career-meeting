@@ -1,5 +1,5 @@
 <template>
-  <carousel :data="data"></carousel>
+  <carousel :data="data" :controls="false"></carousel>
 </template>
 
 <script>

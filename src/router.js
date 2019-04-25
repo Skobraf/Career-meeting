@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Secteur from './views/Secteur.vue';
 import Metier from './views/Metier.vue';
-import Details from './views/Details.vue'
+import Details from './views/Details.vue';
+import Slider from './views/Slider.vue';
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/details',
       name: 'listDetails',
       component: Details
+    },
+    {
+      path: '/slider',
+      name: 'slider',
+      component: Slider
     },
     {
       path: '/',

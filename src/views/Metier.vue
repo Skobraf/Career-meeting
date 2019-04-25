@@ -21,7 +21,7 @@
                 </li>
             </ul>
         </div>
-        <hr>
+        <br>
         <div class="etude-list">
             <h2>Quel est ton niveau d'etudes?</h2>
             <ul>
