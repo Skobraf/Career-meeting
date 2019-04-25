@@ -1,23 +1,28 @@
 <template>
     <div class="secteur">
-        <ul>
-            <li v-for="secteur, index in secteurs">
+        <carousel :per-page="1"  :mouse-drag="false">
+            <slide v-for="secteur, index in secteurs">
                 <router-link
                     :to="{ name: 'secteur', params: { secteurId: index }}">
                     {{secteur.nameSecteur}}
                 </router-link>
-            </li>
-        </ul>
+            </slide>
+        </carousel>
     </div>
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel';
 export default {
     name: 'secteur',
     computed: {
         secteurs() {
             return this.$store.state.secteur;
         }
-    }
+    },
+    components: {
+        Carousel,
+        Slide
+  }
 }
 </script>
