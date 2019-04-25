@@ -2,14 +2,15 @@
     <div class="details">
         <div class="detail-head">
          <Detailtitle v-bind:title ="items.secteur" />
-            <select name="filieres" @change="handleChange">
+            <select class="select-item" name="filieres" @change="handleChange">
                 <option
+                    class="option-item"
                     v-for="filiere,index in filiereSelected[0].filiere"
                     :key="index"
                     :selected="(items.filiereChecked == filiere.nameFiliere) ? 'selected' : false"
                     :value="filiere.nameFiliere"
                     >
-                    {{filiere.nameFiliere}} et {{ index }}
+                    {{filiere.nameFiliere}}
                 </option>
             </select>
         </div>
@@ -77,7 +78,20 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
+    .select-item {
+        display: flex;
+        border-radius: 12px;
+        color: white;
+        text-transform: uppercase;
+        width: 360px;
+        height: 57px;
+        margin: 0 auto;
+        background: #2E263E;
+        border: none;
+        margin-top: 4px;
+    }
+    
 </style>
 
 
