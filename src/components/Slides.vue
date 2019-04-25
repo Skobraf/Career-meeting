@@ -17,14 +17,11 @@ export default {
 </script>
 <style lang="scss" scoped>
     h2 {
-        margin-left: 20px;
-        padding-left: 25px;
+        text-align: center;
         &::before  {
             content: '';
             border: 2px solid #f9be00;
             margin-right: 10px;
-            position: absolute;
-            left: 30px;
             height: 25px;
         }
     }
