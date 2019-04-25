@@ -31,3 +31,17 @@ export default {
   }
 }
 </script>
+<style>
+    .VueCarousel-dot{
+        padding: 5px !important;
+        width: 14px !important;
+        height: 14px !important;
+        background-color: #707070 !important;
+       }
+    .VueCarousel-dot--active {
+        padding: 5px !important;
+        width: 14px !important;
+        height: 14px !important;
+        background-color: #ffffff !important;
+       }
+</style>

@@ -1,7 +1,11 @@
 <template>
     <div class="slide">
         <h2>Dans quel secteur veux-tu exercer ton futur métier?</h2>
-         <img :src="'./images/'+img+'.png'" v-bind:alt="pic">
+        <div class="slide-details">
+            <img :src="'./images/'+img+'.png'" v-bind:alt="pic">
+            <p>{{title}}</p>
+        </div>
+         
     </div>
 </template>
 
@@ -24,8 +28,18 @@ export default {
             height: 25px;
         }
     }
-    img {
-        width: 200px;
-    }
+   .slide-details {
+       text-align: center;
+       margin-top: 50px;
+       img {
+           width: 300px;
+       }
+       p {
+           text-transform: uppercase;
+           font-size: 20px;
+       }
+     
+   }
 </style>
+
 
