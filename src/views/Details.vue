@@ -2,7 +2,8 @@
     <div class="details">
         <div class="detail-head">
          <Detailtitle v-bind:title ="items.secteur" />
-            <select class="select-item" name="filieres" @change="handleChange">
+         <div class="selected-item">
+               <select  class="select-item" name="filieres" @change="handleChange">
                 <option
                     class="option-item"
                     v-for="filiere,index in filiereSelected[0].filiere"
@@ -13,6 +14,8 @@
                     {{filiere.nameFiliere}}
                 </option>
             </select>
+         </div>
+          
         </div>
         <hr>
         <div class="filiere-detail">
@@ -78,19 +81,60 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+    .selected-item {
+            display: flex;
+            border-radius: 12px;
+            width: 360px;
+            height: 57px;
+            margin: 0 auto;
+            background: #2E263E;
+            border: none;
+            margin-top: 4px;
+            &::before {
+                content: '';
+                background-color: rgba(204, 0, 102, 0);
+                border: 1px solid #fff;
+                height: 40px;
+                width: 49px;
+                border-radius: 75px;
+                margin: 8px;
+        }
+    }
     .select-item {
         display: flex;
         border-radius: 12px;
+        font-size: 24px;
         color: white;
-        text-transform: uppercase;
+        font-weight: 600;
         width: 360px;
         height: 57px;
         margin: 0 auto;
         background: #2E263E;
         border: none;
-        margin-top: 4px;
+        option {
+            font-size: 14px;
+            color: black;
+            background: #CDCBD1;
+        }
     }
+    ul {
+        padding-left: 12px;
+    }
+    li {
+        display: flex;
+        &::before {
+            content: '';
+            background-color: rgba(204, 0, 102, 0);
+            border: 1px solid #fff;
+            height: 31px;
+            width: 31px;
+            border-radius: 75px;
+            margin: 16px;
+        }
+    }
+     
+    
     
 </style>
 
