@@ -7,7 +7,6 @@
             <p>{{metiert.description}}</p>
         </div>
         <h2 v-else>{{metiert.nameMetier}}</h2>
-    <hr>
     </div>
 </template>
 

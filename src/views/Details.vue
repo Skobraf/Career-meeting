@@ -17,7 +17,6 @@
          </div>
           
         </div>
-        <hr>
         <div class="filiere-detail">
             <ul>
                 <li v-for="laMetier,index in selectedOption[0].metier"
@@ -25,8 +24,9 @@
                     v-on:click="seen = true"
                     @click="handleMe(laMetier.nameMetier)"
                     >
+                    <span  v-bind:class="{active: items.etudeChecked.some( r=> laMetier.diplome.indexOf(r) >= 0)}"></span>
                     <MetierInfo
-                        v-bind:class="{active: items.etudeChecked.some( r=> laMetier.diplome.indexOf(r) >= 0)}"
+                       
                         v-bind:metiert="laMetier"
                         v-bind:indice="indice"
                         />
@@ -91,15 +91,7 @@ export default {
             background: #2E263E;
             border: none;
             margin-top: 4px;
-            &::before {
-                content: '';
-                background-color: rgba(204, 0, 102, 0);
-                border: 1px solid #fff;
-                height: 40px;
-                width: 49px;
-                border-radius: 75px;
-                margin: 8px;
-        }
+           
     }
     .select-item {
         display: flex;
@@ -120,6 +112,7 @@ export default {
     }
     ul {
         padding-left: 12px;
+        margin-top: 10px;
     }
     li {
         display: flex;
@@ -130,11 +123,39 @@ export default {
             height: 31px;
             width: 31px;
             border-radius: 75px;
-            margin: 16px;
+            margin-top: 17px;
+            margin-left: 20px;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            border: 0.5px solid white;
+            margin-left: 36px;
+            margin-top: -18px;
+            height: 35px;
         }
     }
-     
-    
+     span{
+        background-color: #8E8E8E;
+        height: 22px;
+        width: 22px;
+        position: relative;
+        top: 23px;
+        right: 27px;
+        border-radius: 75px;
+         &::before {
+                content: '';
+                background-color: rgba(204, 0, 102, 0);
+                border: 1px solid #fff;
+                height: 40px;
+                width: 49px;
+                border-radius: 75px;
+                margin: 8px;
+        }
+     }
+    .active {
+        background: #A3C961 !important;
+    }
     
 </style>
 

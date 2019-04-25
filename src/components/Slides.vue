@@ -2,7 +2,8 @@
     <div class="slide">
         <h2>Dans quel secteur veux-tu exercer ton futur métier?</h2>
         <div class="slide-details">
-            <img :src="'./images/'+img+'.png'" v-bind:alt="pic">
+            <img :src="'./images/'+img+'.png'" v-bind:alt="img">
+            <!-- <img :src="getImgUrl(img)" v-bind:alt="pic"> -->
             <p>{{title}}</p>
         </div>
          
@@ -12,7 +13,12 @@
 <script>
 export default {
     name: 'slides',
-    props:['title','img']
+    props:['title','img'],
+    methods: {
+        getImgUrl(pic) {
+        return require('../assets/'+pic)
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
