@@ -4,7 +4,7 @@
         <img src="/images/logo-cc-vector.png" alt="">
         <p>A la decouverte</p>
         <p>des parcours des carrier</p>
-      <button @click="handleNavigation">Start</button>
+      <button @click="handleNavigation"><i class="fas fa-check"></i></button>
     </div>
   </div>
 </template>
@@ -30,6 +30,24 @@ export default {
     background-size: cover;
     height: 100%;
     text-align: center;
+    p {
+      font-size: 24px;
+      margin: 0;
+    }
+    button {
+       margin-top: 65px;
+        background: #A3C961;
+        width: 56px;
+        height:56px;
+        box-shadow:0px 0px 2px 3px #312b2b;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        i {
+        color: white;
+        font-size: 20px;
+         }
+    }
     img {
       width: 200px;
       }
