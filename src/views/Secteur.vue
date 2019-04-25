@@ -4,7 +4,9 @@
             <slide v-for="secteur, index in secteurs">
                 <router-link
                     :to="{ name: 'secteur', params: { secteurId: index }}">
-                    {{secteur.nameSecteur}}
+                    <div>
+                        <Slides v-bind:title="secteur.nameSecteur" v-bind:img="secteur.ImageSect" />
+                    </div>
                 </router-link>
             </slide>
         </carousel>
@@ -13,6 +15,8 @@
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
+import Slides from '../components/Slides.vue';
+
 export default {
     name: 'secteur',
     computed: {
@@ -22,7 +26,8 @@ export default {
     },
     components: {
         Carousel,
-        Slide
+        Slide,
+        Slides
   }
 }
 </script>
