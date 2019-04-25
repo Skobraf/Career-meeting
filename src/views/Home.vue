@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h2>CAREER CENTER</h2>
+    <button @click="handleNavigation">Start</button>
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   name: "home",
   components: {
     HelloWorld
+  },
+  methods: {
+    handleNavigation() {
+      this.$router.push('/secteur');
+    }
   }
 };
 </script>
