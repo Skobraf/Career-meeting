@@ -81,6 +81,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    .details{
+        padding-top: 20px;
+    }
     .selected-item {
             display: flex;
             border-radius: 12px;
@@ -130,6 +133,7 @@ export default {
     }
     li {
         display: flex;
+        height: 70px;
         &::before {
             content: '';
             background-color: rgba(204, 0, 102, 0);
