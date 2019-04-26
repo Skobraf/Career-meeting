@@ -39,8 +39,7 @@
                 </li>
             </ul>
         </div>
-        <div class="submit">
-            
+        <div class="submit">  
             <button @click="handleClick" :disabled="etudeChecked.length == 0 || filiereChecked == ''"><i class="fas fa-check"></i></button>
         </div>
         
@@ -119,6 +118,7 @@ h2 {
         height:56px;
         border: none;
         border-radius: 50%;
+        cursor: not-allowed;
         i {
         color: $outside_color;
         font-size: 20px;
