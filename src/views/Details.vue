@@ -25,6 +25,7 @@
                     @click="handleMe(laMetier.nameMetier)"
                     >
                     <span v-bind:class="{active: items.etudeChecked.some( r=> laMetier.diplome.indexOf(r) >= 0)}"></span>
+                    <i v-bind:class="{arrowLeft: laMetier.nameMetier == indice}"></i>
                     <MetierInfo
                         v-bind:metiert="laMetier"
                         v-bind:indice="indice"
@@ -72,6 +73,7 @@ export default {
         },
         handleMe(index){
             this.indice = index;
+            console.log(this.indice);
         }
     },
     components: {
@@ -80,7 +82,7 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
     .details{
         padding-top: 20px;
     }
@@ -128,12 +130,12 @@ export default {
             border: 0.5px solid white;
             margin-left: 36px;
             margin-top: -23px;
-            height: 242px;
+            height: 340px;
         }
     }
     li {
         display: flex;
-        height: 70px;
+        height: 100px;
         &::before {
             content: '';
             background-color: rgba(204, 0, 102, 0);
@@ -154,10 +156,19 @@ export default {
         left: 25px;
         position: relative;
         border-radius: 75px;
-        margin-right: 40px;
+        margin-right: 30px;
      }
     .active {
         background:#A3C961;
+    }
+    .arrowLeft {
+        width: 0;
+        height: 0;
+        position: relative;
+        bottom: -23px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #f9be00;
     }
     
 </style>

@@ -18,10 +18,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
     .metier {
         position: relative;
         width: 250px;
+        h2 {
+            padding-left: 15px;
+        }
     }
     .metier-details {
         padding-left: 10px;
@@ -29,6 +32,7 @@ export default {
         border-left: 6px solid #f9be00;
         position: fixed;
         width: 288px;
+        height: 370px;
         top: 166px;
         z-index: 1;
     }
