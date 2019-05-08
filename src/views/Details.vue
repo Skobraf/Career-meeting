@@ -73,7 +73,6 @@ export default {
         },
         handleMe(index){
             this.indice = index;
-            console.log(this.indice);
         }
     },
     components: {
