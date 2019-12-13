@@ -3,7 +3,7 @@
 describe("Display metier details", () => {
   beforeEach(() => {
     cy.visit("/");
-    cy.contains('Secteur').click()
+    cy.get('button').click()
     cy.url().should('include', '/secteur')
     cy.contains('Tourisme').click()
     cy.url().should('include', '/secteur/0')
